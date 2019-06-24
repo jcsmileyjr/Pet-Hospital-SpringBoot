@@ -1,6 +1,7 @@
 package org.launchcode.PetHospital.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -8,9 +9,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HospitalController {
 
     @RequestMapping(value= "")
-    @ResponseBody
-    public String index(){
-        return "Hello, how can I help you";
+    public String index(Model model){
+        String test = "Hello, how can I help you";
+        String title = "Saint John Pet Hospital";
+        model.addAttribute("title", title);
+        model.addAttribute("test", test);
+        //return "Hello, how can I help you";
+        return "index";
     }
 
     @RequestMapping(value= "checkInDoctor")
