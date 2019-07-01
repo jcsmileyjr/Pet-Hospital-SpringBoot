@@ -2,6 +2,7 @@ package org.launchcode.PetHospital.controllers;
 
 import org.launchcode.PetHospital.models.Doctor;
 import org.launchcode.PetHospital.models.Hospital;
+import org.launchcode.PetHospital.models.Patient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import java.util.List;
 public class HospitalController {
 
     static List<Doctor> doctors = Hospital.getDoctors();
+
 
     @RequestMapping(value= "", method = RequestMethod.GET)
     public String index(Model model){
@@ -45,7 +47,7 @@ public class HospitalController {
     @RequestMapping(value= "checkInPatient", method = RequestMethod.POST)
     public String processPatient(@RequestParam String patientName, @RequestParam String treatment, @RequestParam Double donation, @RequestParam String doctorName){
         Hospital.checkInPatient(patientName, treatment, donation, doctorName);
-        return "viewPatients";
+        return "redirect:viewAllPatients";
     }
 
     @RequestMapping(value= "checkOutPatient")
@@ -58,6 +60,10 @@ public class HospitalController {
     public String viewAllPatient(Model model){
         model.addAttribute("title", "Saint John Pet Hospital");
         model.addAttribute("doctors", doctors);
+
+        List<Patient> patients = Hospital.viewAllPatients();
+        model.addAttribute("patients", patients);
+
         return "viewPatients";
     }
 

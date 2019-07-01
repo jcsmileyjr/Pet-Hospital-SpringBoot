@@ -83,11 +83,13 @@ public class Hospital {
     }
 
     //print all patients in Hospital
-    public static void viewAllPatients(){
+    public static List viewAllPatients(){
+        List <Patient> listOfPatients = new ArrayList<>();
         //loop through all doctors
         for(Doctor doc : doctors){//loop through list of doctors
-            doc.viewAllDoctorPatients(); //print their patient names
+            listOfPatients.addAll(doc.getDoctorListOfPatient());
         }
+        return listOfPatients;
     }
 
     //print all Doctors checked in
