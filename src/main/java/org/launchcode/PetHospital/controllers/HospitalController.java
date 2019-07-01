@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 public class HospitalController {
+
+    static List<Doctor> doctors = Hospital.getDoctors();
 
     @RequestMapping(value= "", method = RequestMethod.GET)
     public String index(Model model){
@@ -18,20 +22,27 @@ public class HospitalController {
         String title = "Saint John Pet Hospital";
 
         model.addAttribute("title", title);
-        model.addAttribute("doctors", Hospital.getDoctors());
+        model.addAttribute("doctors", doctors);
         return "index";
     }
 
     @RequestMapping(value= "", method = RequestMethod.POST)
     public String checkInDoctor(@RequestParam String doctorName){
         Hospital.checkInDoctor(doctorName);
-        return "redirect:";
+        return "redirect:";/*redirect to index*/
     }
 
-    @RequestMapping(value= "checkInPatient")
-    @ResponseBody
-    public String checkInPatient(){
-        return "Check in a Patient";
+    @RequestMapping(value= "checkInPatient", method = RequestMethod.GET)
+    public String checkInPatient(Model model){
+        model.addAttribute("title", "Saint John Pet Hospital");
+        model.addAttribute("doctors", doctors);
+        return "addPatient";
+    }
+
+    /*TODO: Create viewPatients view*/
+    @RequestMapping(value= "checkInPatient", method = RequestMethod.POST)
+    public String processPatient(){
+        return "viewPatients";
     }
 
     @RequestMapping(value= "checkOutPatient")
@@ -41,9 +52,8 @@ public class HospitalController {
     }
 
     @RequestMapping(value= "viewAllPatients")
-    @ResponseBody
     public String viewAllPatient(){
-        return "View all Patient";
+        return "viewPatients";
     }
 
 }

@@ -34,6 +34,10 @@ a {
     margin-top: -9px;
 }
 
-.checkInDoctorStyle {
+.centerText {
     text-align: center;
+}
+
+.inputLength {
+    max-width: 12rem;
 }
