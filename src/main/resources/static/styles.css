@@ -15,10 +15,11 @@ nav {
     height: 90vh;
 }
 
-.navigation-bar > ul >li {
+.noListStyles > li  {
     list-style:none;
     margin-bottom: 2rem;
 }
+
 /*reset bootstrap css so nav links have 100% width of container*/
 .navigation-bar >ul {
     padding-inline-start:0px !important;
@@ -26,7 +27,7 @@ nav {
 
 /*reset bootstrap css.*/
 a {
-    /*color: black !important;*/
+    color: purple !important;
 }
 
 .connectNavMain {

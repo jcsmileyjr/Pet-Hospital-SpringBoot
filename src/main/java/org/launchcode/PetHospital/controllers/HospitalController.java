@@ -5,28 +5,27 @@ import org.launchcode.PetHospital.models.Hospital;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HospitalController {
 
-    @RequestMapping(value= "")
+    @RequestMapping(value= "", method = RequestMethod.GET)
     public String index(Model model){
-        String test = "Hello, how can I help you";
+        /*TODO: This, Head & Nav, needs to be a fragment for all views*/
         String title = "Saint John Pet Hospital";
-        Hospital.checkInDoctor("Bob");
-        Hospital.checkInDoctor("Dale");
+
         model.addAttribute("title", title);
-        model.addAttribute("test", test);
-        model.addAttribute(new Doctor());
         model.addAttribute("doctors", Hospital.getDoctors());
         return "index";
     }
 
-    @RequestMapping(value= "checkInDoctor")
-    @ResponseBody
-    public String checkInDoctor(){
-        return "Check in a Doctor";
+    @RequestMapping(value= "", method = RequestMethod.POST)
+    public String checkInDoctor(@RequestParam String doctorName){
+        Hospital.checkInDoctor(doctorName);
+        return "redirect:";
     }
 
     @RequestMapping(value= "checkInPatient")

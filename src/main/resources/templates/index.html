@@ -13,29 +13,33 @@
     </nav>
     <main class="row container-fluid connectNavMain">
         <div class="col-xs-4 col-sm-4 navigation-bar">
-<!--            <ul th: if="${doctors} and ${doctors.size()}">
-                <li><a class="test" href="">Check in a Doctor</a></li>
+            <ul class="noListStyles" th:if="${doctors} and ${doctors.size()}">
+                <li><a href="">Check in a Doctor</a></li>
                 <li><a href="">Check in a Patient</a></li>
                 <li><a href="">Check out a Patient</a></li>
                 <li><a href="">View all Current Patients</a></li>
             </ul>
-            <ul th: unless="${doctors} and ${doctors.size()}">
-                <li>No doctors available</li>
-                <li><a class="test" href="">Check in a Doctor</a></li>
-            </ul>-->
-            <ul >
-                <li>No doctors available</li>
+            <ul class="noListStyles" th:unless="${doctors} and ${doctors.size()}">
+                <li>No Doctors Available</li>
                 <li><a class="test" href="">Check in a Doctor</a></li>
             </ul>
         </div>
-        <div class="col-xs-8 col-sm-8 checkInDoctorStyle" th:object="${doctor}">
-            <h2>Let's check in a Doctor</h2>
-            <input type="text" />
-            <input type="submit" />
+        <div class="col-xs-8 col-sm-8 checkInDoctorStyle" th:object="${Doctor}">
+            <form method="post">
+                <h2>Let's check in a Doctor</h2>
+                <input type="text" name="doctorName" />
+                <input type="submit" value="Submit First Name" />
+            </form>
 
-            <ul th:each="doc : ${doctors}">
-                <li th:text="${doc.fullName}"></li>
-            </ul>
+            <section>
+                <h2>Current Doctors</h2>
+                <ul class="noListStyles" th:if="${doctors} and ${doctors.size()}" >
+                    <li th:each="doc : ${doctors}" th:text="${doc.getDoctorName()}"></li>
+                </ul>
+                <ul class="noListStyles" th:unless="${doctors} and ${doctors.size()}">
+                    <li>No doctors available</li>
+                </ul>
+            </section>
         </div>
     </main>
 </body>
