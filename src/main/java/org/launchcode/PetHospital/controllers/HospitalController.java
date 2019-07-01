@@ -1,5 +1,7 @@
 package org.launchcode.PetHospital.controllers;
 
+import org.launchcode.PetHospital.models.Doctor;
+import org.launchcode.PetHospital.models.Hospital;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,9 +14,12 @@ public class HospitalController {
     public String index(Model model){
         String test = "Hello, how can I help you";
         String title = "Saint John Pet Hospital";
+        Hospital.checkInDoctor("Bob");
+        Hospital.checkInDoctor("Dale");
         model.addAttribute("title", title);
         model.addAttribute("test", test);
-        //return "Hello, how can I help you";
+        model.addAttribute(new Doctor());
+        model.addAttribute("doctors", Hospital.getDoctors());
         return "index";
     }
 

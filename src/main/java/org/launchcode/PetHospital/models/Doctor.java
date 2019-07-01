@@ -1,9 +1,10 @@
 package org.launchcode.PetHospital.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Doctor {
+public class Doctor implements Serializable {
     private String fullName;
     private List<Patient> patient = new ArrayList<>();
 
@@ -54,4 +55,19 @@ public class Doctor {
 
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public List<Patient> getPatient() {
+        return patient;
+    }
+
+    public void setPatient(List<Patient> patient) {
+        this.patient = patient;
+    }
 }

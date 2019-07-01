@@ -1,0 +1,38 @@
+/*set the styling for the nav bar*/
+nav {
+    background-color: purple;
+    font-size: 3rem;
+    color:white;
+    text-align: center;
+}
+
+/*set the styling for the navigational bar*/
+.navigation-bar {
+
+    border-right-style: solid;
+    border-right-width: 1px;
+    font-size: 1.5rem;
+    height: 90vh;
+}
+
+.navigation-bar > ul >li {
+    list-style:none;
+    margin-bottom: 2rem;
+}
+/*reset bootstrap css so nav links have 100% width of container*/
+.navigation-bar >ul {
+    padding-inline-start:0px !important;
+}
+
+/*reset bootstrap css.*/
+a {
+    /*color: black !important;*/
+}
+
+.connectNavMain {
+    margin-top: -9px;
+}
+
+.checkInDoctorStyle {
+    text-align: center;
+}
