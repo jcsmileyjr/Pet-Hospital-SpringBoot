@@ -41,3 +41,7 @@ a {
 .inputLength {
     max-width: 12rem;
 }
+
+label {
+    font-weight: bold;
+}

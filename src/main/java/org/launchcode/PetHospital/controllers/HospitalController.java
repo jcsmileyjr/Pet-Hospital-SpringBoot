@@ -39,7 +39,6 @@ public class HospitalController {
         model.addAttribute("title", "Saint John Pet Hospital");
         model.addAttribute("doctors", doctors);
 
-        model.addAttribute(new Doctor("Sample"));
         return "addPatient";
     }
 
@@ -50,10 +49,21 @@ public class HospitalController {
         return "redirect:viewAllPatients";
     }
 
-    @RequestMapping(value= "checkOutPatient")
-    @ResponseBody
-    public String checkOutPatient(){
-        return "Check out a Patient";
+    @RequestMapping(value= "checkOutPatient", method = RequestMethod.GET)
+    public String checkOutPatient(Model model){
+        model.addAttribute("title", "Saint John Pet Hospital");
+        model.addAttribute("doctors", doctors);
+
+        List<Patient> patients = Hospital.viewAllPatients();
+        model.addAttribute("patients", patients);
+        return "removePatient";
+    }
+
+    @RequestMapping(value= "checkOutPatient", method = RequestMethod.POST)
+        public String removePatient(@RequestParam String petName){
+        Doctor petDoctor = Hospital.findMyPetDoctor(petName);
+        Hospital.checkOutPatient(petDoctor.getDoctorName(), petName);
+        return "redirect:viewAllPatients";
     }
 
     @RequestMapping(value= "viewAllPatients")

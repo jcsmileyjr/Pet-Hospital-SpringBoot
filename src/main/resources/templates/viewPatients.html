@@ -17,7 +17,7 @@
         <ul class="noListStyles" th:if="${doctors} and ${doctors.size()}">
             <li><a href="/">Check in a Doctor</a></li>
             <li><a href="/checkInPatient">Check in a Patient</a></li>
-            <li><a href="">Check out a Patient</a></li>
+            <li><a href="/checkOutPatient">Check out a Patient</a></li>
             <li><a href="/viewAllPatients">View all Current Patients</a></li>
         </ul>
         <ul class="noListStyles" th:unless="${doctors} and ${doctors.size()}">
@@ -25,9 +25,9 @@
             <li><a class="test" href="">Check in a Doctor</a></li>
         </ul>
     </div>
-    <div class="col-xs-8 col-sm-8 centerText" >
+    <div class="col-xs-8 col-sm-8" >
         <section>
-            <h2>Current Patients</h2>
+            <h2 class="centerText">Current Patients</h2>
             <ul class="noListStyles" th:if="${patients} and ${patients.size()}" >
                 <li th:each="pet : ${patients}" th:text="${pet.getFullname()} + ' is getting treated for ' + ${pet.getTreament()} + ' by Doctor ' + ${pet.getDoctorName()}"></li>
             </ul>

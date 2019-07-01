@@ -17,7 +17,7 @@
             <ul class="noListStyles" th:if="${doctors} and ${doctors.size()}">
                 <li><a href="/">Check in a Doctor</a></li>
                 <li><a href="/checkInPatient">Check in a Patient</a></li>
-                <li><a href="">Check out a Patient</a></li>
+                <li><a href="/checkOutPatient">Check out a Patient</a></li>
                 <li><a href="/viewAllPatients">View all Current Patients</a></li>
             </ul>
             <ul class="noListStyles" th:unless="${doctors} and ${doctors.size()}">
