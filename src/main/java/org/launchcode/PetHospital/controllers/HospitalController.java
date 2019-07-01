@@ -36,12 +36,15 @@ public class HospitalController {
     public String checkInPatient(Model model){
         model.addAttribute("title", "Saint John Pet Hospital");
         model.addAttribute("doctors", doctors);
+
+        Doctor sampleDoctor = new Doctor("Test");
+        model.addAttribute("test", sampleDoctor);
         return "addPatient";
     }
 
     /*TODO: Create viewPatients view*/
     @RequestMapping(value= "checkInPatient", method = RequestMethod.POST)
-    public String processPatient(){
+    public String processPatient(@RequestParam String doctorName){
         return "viewPatients";
     }
 

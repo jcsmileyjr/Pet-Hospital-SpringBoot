@@ -26,7 +26,7 @@
         </ul>
     </div>
     <div class="col-xs-8 col-sm-8">
-        <form method="post">
+        <form method="post" >
             <div class="form-group">
                 <label th:for="patientName">Patient Name</label>
                 <input class="form-control inputLength" type="text" id="patientName" name="patientName" />
@@ -43,12 +43,13 @@
             </div>
 
             <div class="form-group">
-                <label th:for="doctorName">Doctor</label>
-                <select class="inputLength">
-                   <option  th:each="doc : ${doctor}"
+                <select th:field="*{doctors}">
+                    <option value=""> Pick a Doctor</option>
+                    <option th:each="doc : ${doctors}"
                             th:value="${doc.getDoctorName()}"
-                            th:text="${doc.getDoctorName()}"></option>
+                            th:text="${doc.getDoctorName()}"/>
                 </select>
+
             </div>
 
             <section class="centerText">
