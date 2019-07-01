@@ -25,37 +25,8 @@
             <li><a class="test" href="">Check in a Doctor</a></li>
         </ul>
     </div>
-    <div class="col-xs-8 col-sm-8">
-        <form method="post">
-            <div class="form-group">
-                <label th:for="patientName">Patient Name</label>
-                <input class="form-control inputLength" type="text" id="patientName" name="patientName" />
-            </div>
-
-            <div class="form-group">
-                <label th:for="treatment">Treatment</label>
-                <input class="form-control inputLength" type="text" id="treatment" name="treatment" />
-            </div>
-
-            <div class="form-group">
-                <label th:for="donation">Donation</label>
-                <input class="form-control inputLength" type="text" id="donation" name="donation" />
-            </div>
-
-            <div class="form-group">
-                <select name="doctorName">
-                    <option value=""> Pick a Doctor</option>
-                    <option th:each="doc : ${doctors}"
-                            th:value="${doc.getDoctorName()}"
-                            th:text="${doc.getDoctorName()}"/>
-                </select>
-
-            </div>
-
-            <section class="centerText">
-                <input type="submit" value="Check-in Patient" />
-            </section>
-        </form>
+    <div class="col-xs-8 col-sm-8 centerText" th:object="${Doctor}">
+        <h1>Testing</h1>
     </div>
 </main>
 </body>

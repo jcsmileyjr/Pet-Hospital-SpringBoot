@@ -37,14 +37,14 @@ public class HospitalController {
         model.addAttribute("title", "Saint John Pet Hospital");
         model.addAttribute("doctors", doctors);
 
-        Doctor sampleDoctor = new Doctor("Test");
-        model.addAttribute("test", sampleDoctor);
+        model.addAttribute(new Doctor("Sample"));
         return "addPatient";
     }
 
     /*TODO: Create viewPatients view*/
     @RequestMapping(value= "checkInPatient", method = RequestMethod.POST)
-    public String processPatient(@RequestParam String doctorName){
+    public String processPatient(@RequestParam String patientName, @RequestParam String treatment, @RequestParam Double donation, @RequestParam String doctorName){
+        Hospital.checkInPatient(patientName, treatment, donation, doctorName);
         return "viewPatients";
     }
 
@@ -55,7 +55,9 @@ public class HospitalController {
     }
 
     @RequestMapping(value= "viewAllPatients")
-    public String viewAllPatient(){
+    public String viewAllPatient(Model model){
+        model.addAttribute("title", "Saint John Pet Hospital");
+        model.addAttribute("doctors", doctors);
         return "viewPatients";
     }
 
