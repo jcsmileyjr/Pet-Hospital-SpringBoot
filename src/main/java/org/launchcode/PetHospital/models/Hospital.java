@@ -104,10 +104,10 @@ public class Hospital {
         return doctors;
     }
 
-    //View a chosen doctor's schedule
-    public static void viewDoctorSchedule(String doctorName){
+    //Return a doctor list of pets
+    public static List viewDoctorSchedule(String doctorName){
         Doctor doc = Hospital.findDoctor(doctorName);//find the doctor instance by the name enter by the user
-        doc.printSchedule();//print the schedule for all pets on the doctor's list
+        return doc.getDoctorListOfPatient();
     }
 
 

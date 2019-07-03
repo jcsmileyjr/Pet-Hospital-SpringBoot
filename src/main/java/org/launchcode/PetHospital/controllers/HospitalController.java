@@ -64,14 +64,27 @@ public class HospitalController {
     }
 
     @RequestMapping(value= "viewAllPatients")
-    public String viewAllPatient(Model model){
+    public String viewAllPatient(Model model, String name){
         model.addAttribute("title", "Saint John Pet Hospital");
         model.addAttribute("doctors", doctors);
 
-        List<Patient> patients = Hospital.viewAllPatients();
-        model.addAttribute("patients", patients);
+        if(name == null){
+            List<Patient> patients = Hospital.viewAllPatients();
+            model.addAttribute("patients", patients);
+        }else {
+            List<Patient> patients = Hospital.viewDoctorSchedule(name);
+            model.addAttribute("patients", patients);
+        }
+
 
         return "viewPatients";
+    }
+
+    @RequestMapping(value="schedule")
+    public String viewDoctorSchedule(Model model, String name){
+        System.out.println(name);
+        Hospital.viewDoctorSchedule(name);
+        return "schedule";
     }
 
 }
