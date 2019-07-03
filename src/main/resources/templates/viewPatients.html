@@ -12,19 +12,7 @@
     <h4>Where your pet is Family</h4>
 </nav>
 <main class="row container-fluid connectNavMain">
-
-    <div class="col-xs-4 col-sm-4 navigation-bar">
-        <ul class="noListStyles" th:if="${doctors} and ${doctors.size()}">
-            <li><a href="/">Check in a Doctor</a></li>
-            <li><a href="/checkInPatient">Check in a Patient</a></li>
-            <li><a href="/checkOutPatient">Check out a Patient</a></li>
-            <li><a href="/viewAllPatients">View all Current Patients</a></li>
-        </ul>
-        <ul class="noListStyles" th:unless="${doctors} and ${doctors.size()}">
-            <li>No Doctors Available</li>
-            <li><a class="test" href="">Check in a Doctor</a></li>
-        </ul>
-    </div>
+    <div th:replace="index :: side-nav-bar"></div>
     <div class="col-xs-8 col-sm-8" >
         <section>
             <h2 >Current Patients</h2>

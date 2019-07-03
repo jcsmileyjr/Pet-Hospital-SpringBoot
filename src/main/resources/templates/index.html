@@ -13,8 +13,7 @@
         <h4>Where your pet is Family</h4>
     </nav>
     <main class="row container-fluid connectNavMain">
-        <!--TODO: Transform into a Fragment-->
-        <div class="col-xs-4 col-sm-4 navigation-bar">
+        <div th:fragment="side-nav-bar" class="col-xs-4 col-sm-4 navigation-bar">
             <ul class="noListStyles" th:if="${doctors} and ${doctors.size()}">
                 <li><a href="/"><i class="fa fa-user spaceBetweenIconText" aria-hidden="true"></i>Check in a Doctor</a></li>
                 <li><a href="/checkInPatient"><i class="fa fa-plus-circle spaceBetweenIconText" aria-hidden="true"></i>Check in a Patient</a></li>
