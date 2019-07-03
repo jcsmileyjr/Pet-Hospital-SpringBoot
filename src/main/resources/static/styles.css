@@ -15,6 +15,25 @@ nav {
     height: 90vh;
 }
 
+/*set the input buttons initial transition speed and style*/
+input[type="text"] {
+transition-duration: 0.4s;
+}
+
+/*add animation to the input button*/
+input[type="text"]:hover {
+    box-shadow: 1px 2px 3px black !important;
+    border: 1px solid darkviolet;
+    background-color: darkviolet;
+    color: white;
+}
+
+/*styling for all submit buttons*/
+.submitButton {
+    background-color: purple;
+    color: white;
+}
+
 .noListStyles > li  {
     list-style:none;
     margin-bottom: 1rem;
@@ -50,12 +69,6 @@ label {
 /*add white space to elements Doctor page*/
 .whiteSpaceAbove {
     margin-top: 2rem;
-}
-
-/*styling for all submit buttons*/
-.submitButton {
-    background-color: purple;
-    color: white;
 }
 
 /*styling for icons*/
