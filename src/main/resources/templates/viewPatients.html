@@ -8,11 +8,11 @@
 <main class="row container-fluid connectNavMain">
     <div th:replace="index :: side-nav-bar"></div>
     <div class="col-xs-8 col-sm-8" >
-        <section>
+        <section class="col-xs-12 col-sm-11 offset-sm-1">
             <h2 >Current Patients</h2>
-            <ul class="noListStyles" th:if="${patients} and ${patients.size()}" >
-                <li th:each="pet : ${patients}" th:text="${pet.getFullname()} + ' is getting treated for ' + ${pet.getTreament()} + ' by Doctor ' + ${pet.getDoctorName()}"></li>
-            </ul>
+            <article class="noListStyles" th:if="${patients} and ${patients.size()}" >
+                <p th:each="pet : ${patients}" th:text="${pet.getFullname()} + ' is getting treated for ' + ${pet.getTreament()} + ' by Doctor ' + ${pet.getDoctorName()}"></p>
+            </article>
         </section>
     </div>
 </main>
