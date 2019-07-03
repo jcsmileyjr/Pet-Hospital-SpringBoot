@@ -58,11 +58,14 @@ label {
     color: white;
 }
 
+/*styling for icons*/
 .docIcon {
     color: purple;
 }
 
+/*space between icon and link in side-nav-bar */
 .spaceBetweenIconText {
     margin-right: .5rem;
 }
+
 

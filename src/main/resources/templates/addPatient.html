@@ -14,34 +14,36 @@
 <main class="row container-fluid connectNavMain">
     <div th:replace="index :: side-nav-bar"></div>
     <div class="col-xs-8 col-sm-8">
-        <form method="post">
-            <div class="form-group">
+        <form class="centerText" method="post">
+            <div class="form-group centerText">
                 <label th:for="patientName">Patient Name</label>
-                <input class="form-control inputLength" type="text" id="patientName" name="patientName" />
-            </div>
+                <section class="centerText">
+                    <input class=" inputLength" type="text" id="patientName" name="patientName" />
+                </section>
 
-            <div class="form-group">
+            </div>
+            <div class="form-group whiteSpaceAbove">
                 <label th:for="treatment">Treatment</label>
-                <input class="form-control inputLength" type="text" id="treatment" name="treatment" />
+                <section class="centerText">
+                    <input class="inputLength" type="text" id="treatment" name="treatment" />
+                </section>
             </div>
-
-            <div class="form-group">
+            <div class="form-group whiteSpaceAbove">
                 <label th:for="donation">Donation</label>
-                <input class="form-control inputLength" type="text" id="donation" name="donation" />
+                <section class="centerText">
+                    <input class="inputLength" type="text" id="donation" name="donation" />
+                </section>
             </div>
-
-            <div class="form-group">
+            <div class="form-group whiteSpaceAbove">
                 <select name="doctorName">
                     <option value=""> Pick a Doctor</option>
                     <option th:each="doc : ${doctors}"
                             th:value="${doc.getDoctorName()}"
                             th:text="${doc.getDoctorName()}"/>
                 </select>
-
             </div>
-
-            <section class="centerText">
-                <input type="submit" value="Check-in Patient" />
+            <section class="centerText whiteSpaceAbove">
+                <input class="submitButton" type="submit" value="Check-in Patient" />
             </section>
         </form>
     </div>
