@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8">
-    <link th:href="@{styles.css}" rel="stylesheet" />
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title th:text="${title}"></title>
-</head>
+<head th:replace="index ::header"></head>
 <body class="container-fluid">
 <nav>Saint John Pet Hospital
     <h4>Where your pet is Family</h4>
@@ -15,7 +9,7 @@
     <div th:replace="index :: side-nav-bar"></div>
     <div class="col-xs-8 col-sm-8">
         <form method="post">
-            <div class="form-group">
+            <div class="form-group centerText whiteSpaceAbove">
                 <select name="petName">
                     <option value=""> Pick a Pet</option>
                     <option th:each="pet : ${patients}"
@@ -24,8 +18,8 @@
                 </select>
             </div>
 
-            <section class="centerText">
-                <input type="submit" value="Check-in Patient" />
+            <section class="centerText whiteSpaceAbove">
+                <input class="submitButton" type="submit" value="Check-in Patient" />
             </section>
         </form>
     </div>
