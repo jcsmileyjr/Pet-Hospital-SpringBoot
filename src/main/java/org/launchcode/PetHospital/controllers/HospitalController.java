@@ -17,7 +17,6 @@ public class HospitalController {
 
     static List<Doctor> doctors = Hospital.getDoctors();
 
-
     @RequestMapping(value= "", method = RequestMethod.GET)
     public String index(Model model){
         String title = "Saint John Pet Hospital";

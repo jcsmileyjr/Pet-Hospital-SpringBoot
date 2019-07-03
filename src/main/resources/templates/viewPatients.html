@@ -8,11 +8,22 @@
 <main class="row container-fluid connectNavMain">
     <div th:replace="index :: side-nav-bar"></div>
     <div class="col-xs-8 col-sm-8" >
-        <section class="col-xs-12 col-sm-11 offset-sm-1">
-            <h2 >Current Patients</h2>
-            <article class="noListStyles" th:if="${patients} and ${patients.size()}" >
-                <p th:each="pet : ${patients}" th:text="${pet.getFullname()} + ' is getting treated for ' + ${pet.getTreament()} + ' by Doctor ' + ${pet.getDoctorName()}"></p>
-            </article>
+        <section>
+            <h2 class="centerText">Current Patients</h2>
+            <table  th:if="${patients} and ${patients.size()}">
+                <tr>
+                    <td class="spaceBetweenIconText"></td>
+                    <td class="spaceBetweenIconText"><label>Name</label></td>
+                    <td class="spaceBetweenIconText"><label>Treatment</label></td>
+                    <td class="spaceBetweenIconText"><label>Doctor</label></td>
+                </tr>
+                <tr th:each="pet, iterater : ${patients}">
+                    <td class="spaceBetweenIconText" th:text="${iterater.count}"></td>
+                    <td class="spaceBetweenIconText" th:text="${pet.getFullname()}"></td>
+                    <td class="spaceBetweenIconText" th:text="${pet.getTreament()}"></td>
+                    <td class="spaceBetweenIconText" th:text="${pet.getDoctorName()}"></td>
+                </tr>
+            </table>
         </section>
     </div>
 </main>
