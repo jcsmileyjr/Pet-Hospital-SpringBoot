@@ -20,13 +20,9 @@
                 <li><a href="/checkOutPatient"><i class="fa fa-minus-circle spaceBetweenIconText" aria-hidden="true"></i>Check out a Patient</a></li>
                 <li><a href="/viewAllPatients"><i class="fa fa-search-plus spaceBetweenIconText" aria-hidden="true"></i>View all Current Patients</a></li>
             </ul>
-            <ul class="noListStyles" th:unless="${doctors} and ${doctors.size()}">
-                <li>No Doctors Available</li>
-                <li><a class="test" href="">Check in a Doctor</a></li>
-            </ul>
             <section>
-                <strong>Working</strong>
                 <article th:if="${doctors} and ${doctors.size()}" >
+                    <strong>Working</strong>
                     <p th:each="doc : ${doctors}" th:text="'Doctor ' + ${doc.getDoctorName()}"></p>
                 </article>
                 <p th:unless="${doctors} and ${doctors.size()}">
