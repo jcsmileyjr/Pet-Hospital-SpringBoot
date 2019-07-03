@@ -20,7 +20,6 @@ public class HospitalController {
 
     @RequestMapping(value= "", method = RequestMethod.GET)
     public String index(Model model){
-        /*TODO: This, Head & Nav, needs to be a fragment for all views*/
         String title = "Saint John Pet Hospital";
 
         model.addAttribute("title", title);
@@ -42,7 +41,6 @@ public class HospitalController {
         return "addPatient";
     }
 
-    /*TODO: Create viewPatients view*/
     @RequestMapping(value= "checkInPatient", method = RequestMethod.POST)
     public String processPatient(@RequestParam String patientName, @RequestParam String treatment, @RequestParam Double donation, @RequestParam String doctorName){
         Hospital.checkInPatient(patientName, treatment, donation, doctorName);
