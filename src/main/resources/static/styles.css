@@ -17,7 +17,7 @@ nav {
 
 .noListStyles > li  {
     list-style:none;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 /*reset bootstrap css so nav links have 100% width of container*/
@@ -46,3 +46,23 @@ a {
 label {
     font-weight: bold;
 }
+
+/*add white space to elements Doctor page*/
+.whiteSpaceAbove {
+    margin-top: 2rem;
+}
+
+/*styling for all submit buttons*/
+.submitButton {
+    background-color: purple;
+    color: white;
+}
+
+.docIcon {
+    color: purple;
+}
+
+.spaceBetweenIconText {
+    margin-right: .5rem;
+}
+

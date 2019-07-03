@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link th:href="@{styles.css}" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title th:text="${title}"></title>
@@ -15,37 +16,36 @@
         <!--TODO: Transform into a Fragment-->
         <div class="col-xs-4 col-sm-4 navigation-bar">
             <ul class="noListStyles" th:if="${doctors} and ${doctors.size()}">
-                <li><a href="/">Check in a Doctor</a></li>
-                <li><a href="/checkInPatient">Check in a Patient</a></li>
-                <li><a href="/checkOutPatient">Check out a Patient</a></li>
-                <li><a href="/viewAllPatients">View all Current Patients</a></li>
+                <li><a href="/"><i class="fa fa-user spaceBetweenIconText" aria-hidden="true"></i>Check in a Doctor</a></li>
+                <li><a href="/checkInPatient"><i class="fa fa-plus-circle spaceBetweenIconText" aria-hidden="true"></i>Check in a Patient</a></li>
+                <li><a href="/checkOutPatient"><i class="fa fa-minus-circle spaceBetweenIconText" aria-hidden="true"></i>Check out a Patient</a></li>
+                <li><a href="/viewAllPatients"><i class="fa fa-search-plus spaceBetweenIconText" aria-hidden="true"></i>View all Current Patients</a></li>
             </ul>
             <ul class="noListStyles" th:unless="${doctors} and ${doctors.size()}">
                 <li>No Doctors Available</li>
                 <li><a class="test" href="">Check in a Doctor</a></li>
             </ul>
+            <section>
+                <strong>Working</strong>
+                <article th:if="${doctors} and ${doctors.size()}" >
+                    <p th:each="doc : ${doctors}" th:text="'Doctor ' + ${doc.getDoctorName()}"></p>
+                </article>
+                <p th:unless="${doctors} and ${doctors.size()}">
+                    <span>No doctors available</span>
+                </p>
+            </section>
         </div>
         <div class="col-xs-8 col-sm-8 centerText" th:object="${Doctor}">
             <form class="centerText" method="post">
                 <h2>Let's check in a Doctor</h2>
-                <section class="centerText">
+                <section class="centerText whiteSpaceAbove">
                     <input type="text" name="doctorName" />
                 </section >
-                <section class="centerText">
-                    <input type="submit" value="Submit First Name" />
+                <section class="centerText whiteSpaceAbove">
+                    <input class="submitButton" type="submit" value="Submit First Name" />
                 </section>
-
+                <section class="whiteSpaceAbove"><i class="fa fa-user-md fa-5x docIcon" aria-hidden="true"></i></section>
             </form>
-
-            <section>
-                <h2>Current Doctors</h2>
-                <ul class="noListStyles" th:if="${doctors} and ${doctors.size()}" >
-                    <li th:each="doc : ${doctors}" th:text="${doc.getDoctorName()}"></li>
-                </ul>
-                <ul class="noListStyles" th:unless="${doctors} and ${doctors.size()}">
-                    <li>No doctors available</li>
-                </ul>
-            </section>
         </div>
     </main>
 </body>
