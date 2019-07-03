@@ -26,10 +26,15 @@
             </ul>
         </div>
         <div class="col-xs-8 col-sm-8 centerText" th:object="${Doctor}">
-            <form method="post">
+            <form class="centerText" method="post">
                 <h2>Let's check in a Doctor</h2>
-                <input type="text" name="doctorName" />
-                <input type="submit" value="Submit First Name" />
+                <section class="centerText">
+                    <input type="text" name="doctorName" />
+                </section >
+                <section class="centerText">
+                    <input type="submit" value="Submit First Name" />
+                </section>
+
             </form>
 
             <section>

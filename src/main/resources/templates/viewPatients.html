@@ -27,7 +27,7 @@
     </div>
     <div class="col-xs-8 col-sm-8" >
         <section>
-            <h2 class="centerText">Current Patients</h2>
+            <h2 >Current Patients</h2>
             <ul class="noListStyles" th:if="${patients} and ${patients.size()}" >
                 <li th:each="pet : ${patients}" th:text="${pet.getFullname()} + ' is getting treated for ' + ${pet.getTreament()} + ' by Doctor ' + ${pet.getDoctorName()}"></li>
             </ul>
