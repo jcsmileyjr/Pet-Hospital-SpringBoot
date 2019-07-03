@@ -68,11 +68,12 @@ public class HospitalController {
         model.addAttribute("title", "Saint John Pet Hospital");
         model.addAttribute("doctors", doctors);
 
-        if(name == null){
-            List<Patient> patients = Hospital.viewAllPatients();
-            model.addAttribute("patients", patients);
-        }else {
+        if(name != null){
             List<Patient> patients = Hospital.viewDoctorSchedule(name);
+            model.addAttribute("patients", patients);
+
+        }else {
+            List<Patient> patients = Hospital.viewAllPatients();
             model.addAttribute("patients", patients);
         }
 

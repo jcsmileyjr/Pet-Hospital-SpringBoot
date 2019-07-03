@@ -18,7 +18,7 @@
                 <li><a href="/"><i class="fa fa-user spaceBetweenIconText" aria-hidden="true"></i>Check in a Doctor</a></li>
                 <li><a href="/checkInPatient"><i class="fa fa-plus-circle spaceBetweenIconText" aria-hidden="true"></i>Check in a Patient</a></li>
                 <li><a href="/checkOutPatient"><i class="fa fa-minus-circle spaceBetweenIconText" aria-hidden="true"></i>Check out a Patient</a></li>
-                <li><a href="viewPatients" th:href="@{/viewAllPatients(name='all')}"><i class="fa fa-search-plus spaceBetweenIconText" aria-hidden="true"></i>View all Current Patients</a></li>
+                <li><a href="viewPatients" th:href="@{/viewAllPatients}"><i class="fa fa-search-plus spaceBetweenIconText" aria-hidden="true"></i>View all Current Patients</a></li>
             </ul>
             <section>
                 <article th:if="${doctors} and ${doctors.size()}" >
