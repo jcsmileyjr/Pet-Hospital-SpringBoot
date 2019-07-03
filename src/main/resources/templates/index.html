@@ -24,6 +24,7 @@
                 <article th:if="${doctors} and ${doctors.size()}" >
                     <strong>Working</strong>
                     <a style="display:block" th:each="doc : ${doctors}"  href="viewPatients" th:href="@{/viewAllPatients(name=${doc.getDoctorName()})}" th:text="'Doctor ' + ${doc.getDoctorName()}"></a>
+                    <p class="notes">*Click to view schedule</p>
                 </article>
                 <p th:unless="${doctors} and ${doctors.size()}">
                     <span>No doctors available</span>

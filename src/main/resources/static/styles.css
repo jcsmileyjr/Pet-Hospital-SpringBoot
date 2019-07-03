@@ -96,6 +96,11 @@ td {
         font-size: 1.2rem;
     }
 }
+/*small note to viewer to view doctor schdule*/
+.notes {
+    color: red;
+    font-size: .8rem;
+}
 
 
 
