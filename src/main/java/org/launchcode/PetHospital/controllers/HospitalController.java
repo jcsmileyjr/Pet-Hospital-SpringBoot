@@ -36,7 +36,6 @@ public class HospitalController {
     public String checkInPatient(Model model){
         model.addAttribute("title", "Saint John Pet Hospital");
         model.addAttribute("doctors", doctors);
-
         return "addPatient";
     }
 
@@ -71,13 +70,10 @@ public class HospitalController {
         if(name != null){
             List<Patient> patients = Hospital.viewDoctorSchedule(name);
             model.addAttribute("patients", patients);
-
         }else {
             List<Patient> patients = Hospital.viewAllPatients();
             model.addAttribute("patients", patients);
         }
-
-
         return "viewPatients";
     }
 

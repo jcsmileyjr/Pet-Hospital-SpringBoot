@@ -4,17 +4,19 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+//This class describe the doctor use to treat the pets in the hospital.
 public class Doctor implements Serializable {
     private String fullName;
-    private List<Patient> patient = new ArrayList<>();
+    private List<Patient> patients = new ArrayList<>();// array of pets
 
+    //constructor used to create a doctor object
     public Doctor(String aFullName){
         fullName = aFullName;
     }
 
     //create a new patient and add to the patient array
     public void newPatient(Patient pet){
-        patient.add(pet);
+        patients.add(pet);
     }
 
     //get the name of the current doctor instance
@@ -22,36 +24,28 @@ public class Doctor implements Serializable {
         return this.fullName;
     }
 
-    //Remove a pet from a doctor.
+    //Remove a pet from a doctor list of patients
     public void checkoutPatient(Patient pet){
-        System.out.println(pet.getFullname() + " have been cured of " + pet.getTreament() +" &  has checkout.");
-        patient.remove(pet);
-    }
-
-    //print the doctor's schedule of pet treatments
-    public void printSchedule(){
-        for(Patient pet : patient){//loop through the array of pets
-            System.out.println(pet.getFullname() + " is in the Hospital for " + pet.getTreament());
-        }
+        patients.remove(pet);
     }
 
     //view a chosen pet
     public void viewPatient(Patient pet){
-        int isHere = patient.indexOf(pet);//find the index of the pet in the array
-        Patient foundPet = patient.get(isHere);//get the pet from the array
+        int isHere = patients.indexOf(pet);//find the index of the pet in the array
+        Patient foundPet = patients.get(isHere);//get the pet from the array
         System.out.println(foundPet.getFullname() + " is being treated for " + foundPet.getTreament() + " and is a patient of " + this.fullName);//print the name of the pet
     }
 
     //view all pets under the care of this doctor
     public  void viewAllDoctorPatients(){
-        for(Patient pet : patient){//loop through a array of pets
+        for(Patient pet : patients){//loop through a array of pets
             System.out.println(pet.getFullname()+ " is being treated for " + pet.getTreament() +  " and is a patient of " + this.fullName);
         }
     }
 
     //used in Hospital check out patient method
     public List<Patient> getDoctorListOfPatient(){
-        return patient;
+        return patients;
 
     }
 
@@ -64,10 +58,10 @@ public class Doctor implements Serializable {
     }
 
     public List<Patient> getPatient() {
-        return patient;
+        return patients;
     }
 
     public void setPatient(List<Patient> patient) {
-        this.patient = patient;
+        this.patients = patient;
     }
 }

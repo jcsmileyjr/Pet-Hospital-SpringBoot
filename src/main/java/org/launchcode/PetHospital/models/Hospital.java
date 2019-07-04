@@ -25,7 +25,6 @@ public class Hospital {
         //find the doctor, add the patient to the doctor care, and show that the doctor acknowledge them
         Doctor doc =  Hospital.findDoctor(doctorName);
         doc.newPatient(pet);
-        doc.viewPatient(pet);
     }
 
     //find a specific doctor based on name

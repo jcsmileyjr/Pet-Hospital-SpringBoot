@@ -2,6 +2,7 @@ package org.launchcode.PetHospital.models;
 
 import java.util.List;
 
+//This class is used to describe the pets treated in the Hospital
 public class Patient {
     private String fullname;
     private String treament;
